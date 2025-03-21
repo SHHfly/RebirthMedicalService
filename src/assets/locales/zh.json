@@ -1,6 +1,12 @@
 {
-  "message": {
-    "hello": "你好，世界！",
-    "welcome": "欢迎访问我们的网站"
+  "home": {
+    "welcom1": "全球拥有特殊能力的",
+    "welcom2": "人士为您提供健康解决方案",
+    "home": "首页",
+    "mission": "任务广场",
+    "success": "成功案例",
+    "us": "关于我们",
+    "login": "登录",
+    "register": "注册"
   }
 }

@@ -6,7 +6,58 @@
       <div class="main-header-top-warp">
         <div class="logo-box">
           <img src="../assets/img/logo.png" alt="" />
-          <p>让医疗简单起来</p>
+        </div>
+        <ul class="tab-list">
+          <li>
+            <span>{{ $t("home.home") }}</span>
+          </li>
+          <li>
+            <span>{{ $t("home.mission") }}</span>
+          </li>
+          <li>
+            <span>{{ $t("home.success") }}</span>
+          </li>
+          <li>
+            <span>{{ $t("home.us") }}</span>
+          </li>
+        </ul>
+        <div class="login-btn">
+          <span>{{ $t("home.login") }}</span>
+        </div>
+        <div class="language-box">
+          <el-dropdown trigger="click">
+            <span class="el-dropdown-link">
+              中文<i class="el-icon-arrow-down el-icon--right"></i>
+            </span>
+            <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item>中文</el-dropdown-item>
+              <el-dropdown-item>English</el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown>
+        </div>
+      </div>
+    </div>
+    <div class="main-header-search">
+      <div class="main-header-search-wrap">
+        <p class="welcome-message">{{ $t("home.welcom1") }}</p>
+        <p class="welcome-message">{{ $t("home.welcom2") }}</p>
+        <div class="search-box">
+          <el-input
+            v-model="inputValue"
+            placeholder="请输入内容"
+            clearable
+            @keyup.enter="handleButtonClick"
+          >
+            <i slot="prefix" class="el-input__icon el-icon-search"></i>
+            <template #append>
+              <el-button
+                type="primary"
+                @click="handleButtonClick"
+              >
+                搜索
+              </el-button>
+            </template>
+          </el-input>
         </div>
       </div>
     </div>
@@ -17,13 +68,13 @@
 export default {};
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .main-header {
   position: relative;
   height: 32.7223rem;
   width: 100%;
   .main-header-bg {
-    background: url("../assets/img/home.png") 50% 50% no-repeat;
+    background: url("../assets/img/home-bg1.jpg") 50% 50% no-repeat;
     background-size: cover;
     position: absolute;
     left: 0;
@@ -56,14 +107,82 @@ export default {};
       z-index: 2;
     }
     .main-header-top-warp {
-      width: 64rem;
+      width: 70rem;
       margin: 0 auto;
-      img {
-        width: 7.778rem;
-        height: 2.222rem;
-      }
+      display: flex;
+      height: 100%;
+      color: #fff;
+      line-height: 4.445rem;
       .logo-box {
-        color: #fff;
+        width: 21rem;
+        display: flex;
+        align-items: center;
+        img {
+          width: 7.778rem;
+          height: 2.222rem;
+        }
+      }
+      .tab-list {
+        display: flex;
+        height: 100%;
+        margin-left: 1rem;
+        li {
+          width: 8rem;
+          text-align: center;
+          font-weight: 700;
+          span {
+            cursor: pointer;
+            &:hover {
+              color: rgba(255, 255, 255, 0.9);
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+      .login-btn {
+        width: 8rem;
+        text-align: center;
+        font-weight: 700;
+        span {
+          cursor: pointer;
+          &:hover {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: underline;
+          }
+        }
+      }
+      .language-box {
+        width: 5rem;
+        text-align: right;
+        .el-dropdown {
+          color: #fff;
+          font-size: 1rem;
+          font-weight: 700;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  .main-header-search {
+    position: relative;
+    height: 28.2773rem;
+    z-index: 2;
+    .main-header-search-wrap {
+      width: 70rem;
+      margin: 0 auto;
+      height: 100%;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      .welcome-message {
+        font-size: 3rem;
+      }
+      .search-box {
+        height: 4.5rem;
+        /deep/ .el-input__inner {
+          height: 4.5rem;
+        }
       }
     }
   }

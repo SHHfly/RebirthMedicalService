@@ -15,7 +15,7 @@ const messages = {
 
 // 创建i18n实例
 const i18n = new VueI18n({
-  locale: 'en', // 默认语言
+  locale: 'zh', // 默认语言
   messages
 });
 
