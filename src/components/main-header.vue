@@ -6,6 +6,7 @@
       <div class="main-header-top-warp">
         <div class="logo-box">
           <img src="../assets/img/logo.png" alt="" />
+          <p>{{ $t("home.welcom") }}</p>
         </div>
         <ul class="tab-list">
           <li>
@@ -39,8 +40,9 @@
     </div>
     <div class="main-header-search">
       <div class="main-header-search-wrap">
-        <p class="welcome-message">{{ $t("home.welcom1") }}</p>
-        <p class="welcome-message">{{ $t("home.welcom2") }}</p>
+        <p class="search-message">{{ $t("home.search1") }}</p>
+        <p class="search-message">{{ $t("home.search2") }}</p>
+        <p>{{ $t("home.search3") }}</p>
         <div class="search-box">
           <el-input
             v-model="inputValue"
@@ -50,15 +52,15 @@
           >
             <i slot="prefix" class="el-input__icon el-icon-search"></i>
             <template #append>
-              <el-button
-                type="primary"
-                @click="handleButtonClick"
-              >
+              <el-button type="primary" @click="handleButtonClick">
                 搜索
               </el-button>
             </template>
           </el-input>
         </div>
+        <p class="search-topics">
+          {{ $t("home.search4") }}：<span>长期失眠怎么办？</span>，<span>满脸痘痘怎么办？</span>
+        </p>
       </div>
     </div>
   </div>
@@ -116,10 +118,14 @@ export default {};
       .logo-box {
         width: 21rem;
         display: flex;
-        align-items: center;
+        justify-content: center;
+        flex-direction: column;
         img {
           width: 7.778rem;
           height: 2.222rem;
+        }
+        p {
+          line-height: 1.5rem;
         }
       }
       .tab-list {
@@ -175,14 +181,22 @@ export default {};
       display: flex;
       flex-direction: column;
       justify-content: center;
-      .welcome-message {
+      .search-message {
         font-size: 3rem;
       }
       .search-box {
-        height: 4.5rem;
-        /deep/ .el-input__inner {
-          height: 4.5rem;
+        height: 3.5rem;
+        width: 30rem;
+        margin: 1rem 0rem;
+        ::v-deep .el-input__inner {
+          height: 3.5rem;
+          font-size: 1rem;
         }
+      }
+      .search-topics span {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: underline;
+        cursor: pointer;
       }
     }
   }
