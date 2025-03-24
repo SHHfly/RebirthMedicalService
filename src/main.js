@@ -3,7 +3,7 @@ import App from './App.vue'
 import i18n from './i18n'
 import router from './router';
 import ElementUI from 'element-ui';
-// import 'element-ui/packages/theme-chalk/src/index.scss';
+// import 'element-ui/packages/theme-chalk/src/index.scss'; //db3a1b
 import 'element-ui/lib/theme-chalk/index.css'
 import './assets/styles/reset.scss'
 import './assets/styles/global.scss'

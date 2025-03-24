@@ -20,7 +20,7 @@ const routes = [
 ];
 
 const router = new VueRouter({
-  mode: 'history', // 使用 HTML5 History 模式
+  mode: 'hash', // 使用 HTML5 History 模式
   routes
 });
 
