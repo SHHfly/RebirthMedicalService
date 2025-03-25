@@ -37,10 +37,7 @@
       <div class="review-team-warp">
         <div class="review-team-info-warp">
           <p class="review-team-info">
-            猎医网汇聚了来自全球的顶尖专家和特殊技能者，
-            他们各怀绝技，致力于为您的健康问题提供多元化、
-            个性化方案的审核。每一位专家都经过严格筛选和
-            认证，确保他们的专业性和实力。这些专家包括但 不限于以下几类：
+            猎医网汇聚了来自全球的顶尖专家和特殊技能者，他们各怀绝技，致力于为您的健康问题提供多元化、个性化方案的审核。每一位专家都经过严格筛选和认证，确保他们的专业性和实力。这些专家包括但不限于以下几类：
           </p>
           <div class="review-team-type-list">
             <div class="review-team-type-item">
@@ -73,13 +70,82 @@
             </div>
           </div>
         </div>
+        <div class="review-team-list-warp">
+          <div class="swiper-container">
+            <div class="swiper-wrapper">
+              <div
+                class="swiper-slide"
+                v-for="(slide, index) in slides"
+                :key="index"
+              >
+                {{ slide }}
+              </div>
+            </div>
+          </div>
+          <!-- 完全自定义的导航按钮 -->
+          <i class="el-icon-success fa-chevron-left" @click="swiperLeft"></i>
+          <i class="el-icon-success fa-chevron-right" @click="swiperRight"></i>
+        </div>
+      </div>
+      <div class="main-header-title">
+        <p>BBAA</p>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import Swiper from "swiper";
+import "swiper/css/swiper.min.css";
+export default {
+  data() {
+    return {
+      slides: ["Slide 1", "Slide 2", "Slide 3", "Slide 4"],
+      mySwiper: null,
+    };
+  },
+  mounted() {
+    this.initSwiper();
+  },
+  methods: {
+    initSwiper() {
+      this.mySwiper = new Swiper(".swiper-container", {
+        // 配置选项
+        loop: true,
+        autoplay: {
+          delay: 3000,
+          stopOnLastSlide: false,
+          disableOnInteraction: true,
+        },
+        effect: "coverflow",
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: 2,
+        spaceBetween: "6%",
+        coverflowEffect: {
+          rotate: 0,
+          stretch: 0,
+          depth: 100,
+          modifier: 1,
+          slideShadows: false,
+        },
+      });
+    },
+    swiperLeft() {
+      this.mySwiper.slidePrev();
+    },
+    swiperRight() {
+      this.mySwiper.slideNext();
+    },
+  },
+  beforeDestroy() {
+    // 组件销毁时销毁 Swiper 实例
+    if (this.mySwiper) {
+      this.mySwiper.destroy();
+      this.mySwiper = null;
+    }
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -148,13 +214,14 @@ export default {};
       flex-wrap: wrap;
       justify-content: space-between;
       width: 20rem;
-      
+
       .review-team-type-item {
         width: 9rem;
         display: flex;
         align-items: center;
         margin-top: 1rem;
-        &:nth-child(1),&:nth-child(2){
+        &:nth-child(1),
+        &:nth-child(2) {
           margin-top: 0;
         }
         i {
@@ -164,6 +231,35 @@ export default {};
         }
         span {
           font-size: 1rem;
+        }
+      }
+    }
+    .review-team-list-warp {
+      position: relative;
+      margin-top: 1rem;
+      .fa-chevron-left,
+      .fa-chevron-right {
+        font-size: 3rem;
+        color: #db3a1b;
+        position: absolute;
+        top: 48%;
+        cursor: pointer;
+      }
+      .fa-chevron-left {
+        left: -4rem;
+      }
+      .fa-chevron-right {
+        right: -4rem;
+      }
+      .swiper-container {
+        width: 100%;
+        height: 18rem;
+        .swiper-slide {
+          text-align: center;
+          background: #fff;
+          display: flex;
+          justify-content: center;
+          align-items: center;
         }
       }
     }

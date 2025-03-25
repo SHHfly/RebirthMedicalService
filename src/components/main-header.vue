@@ -45,14 +45,12 @@
         <p>{{ $t("home.search3") }}</p>
         <div class="search-box">
           <el-input
-            v-model="inputValue"
             placeholder="请输入内容"
             clearable
-            @keyup.enter="handleButtonClick"
           >
             <i slot="prefix" class="el-input__icon el-icon-search"></i>
             <template #append>
-              <el-button type="primary" @click="handleButtonClick">
+              <el-button type="primary">
                 搜索
               </el-button>
             </template>
