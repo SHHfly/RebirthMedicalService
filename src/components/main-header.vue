@@ -23,7 +23,7 @@
           </li>
         </ul>
         <div class="login-btn">
-          <span>{{ $t("home.login") }}</span>
+          <span>{{ $t("home.login") }}</span> 
         </div>
         <div class="language-box">
           <el-dropdown trigger="click">
