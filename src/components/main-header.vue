@@ -23,7 +23,7 @@
           </li>
         </ul>
         <div class="login-btn">
-          <span>{{ $t("home.login") }}</span> 
+          <span>{{ $t("home.login") }}</span>
         </div>
         <div class="language-box">
           <el-dropdown trigger="click">
@@ -44,20 +44,17 @@
         <p class="search-message">{{ $t("home.search2") }}</p>
         <p>{{ $t("home.search3") }}</p>
         <div class="search-box">
-          <el-input
-            placeholder="请输入内容"
-            clearable
-          >
+          <el-input placeholder="请输入内容" clearable>
             <i slot="prefix" class="el-input__icon el-icon-search"></i>
             <template #append>
-              <el-button type="primary">
-                搜索
-              </el-button>
+              <el-button type="primary"> 搜索 </el-button>
             </template>
           </el-input>
         </div>
         <p class="search-topics">
-          {{ $t("home.search4") }}：<span>长期失眠怎么办？</span>，<span>满脸痘痘怎么办？</span>
+          {{ $t("home.search4") }}：<span>长期失眠怎么办？</span>，<span
+            >满脸痘痘怎么办？</span
+          >
         </p>
       </div>
     </div>
@@ -189,6 +186,19 @@ export default {};
         ::v-deep .el-input__inner {
           height: 3.5rem;
           font-size: 1rem;
+          border: none;
+        }
+        ::v-deep .el-button--primary {
+          color: #000;
+          background: #db3a1b;
+          width: 4rem;
+          margin: 0 0.2rem;
+          letter-spacing: 0.1rem;
+          font-weight: 700;
+        }
+        ::v-deep .el-input-group__append {
+          border: none;
+          background: #fff;
         }
       }
       .search-topics span {

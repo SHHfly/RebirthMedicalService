@@ -189,10 +189,10 @@ export default {
     }
     .operation-mode-img {
       width: 25rem;
-      height: 27rem;
+      height: 26.5rem;
       overflow: hidden;
       border-radius: 0.5rem;
-      background: url("../assets/img/office.png") 50% 50% no-repeat;
+      background: url("../assets/img/office1.jpeg") 50% 50% no-repeat;
       background-size: cover;
     }
   }
